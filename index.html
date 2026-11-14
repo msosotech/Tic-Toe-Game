@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic-Tac-Toe Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">ARCADE MODE</p>
+      <h1>Tic-Tac-Toe <span>Pro</span></h1>
+      <p class="subtitle">Think ahead. Play smart.</p>
+    </header>
+
+    <section class="controls" aria-label="Game settings">
+      <label for="mode">Mode</label>
+      <select id="mode">
+        <option value="ai">Play vs. AI</option>
+        <option value="two">Two players</option>
+      </select>
+
+      <label for="difficulty" id="difficulty-label">AI difficulty</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </section>
+
+    <section class="game">
+      <div class="status">
+        <strong id="turn">Your turn (X)</strong>
+        <span id="round">Round 1</span>
+      </div>
+
+      <div class="board" id="board" aria-label="Tic-Tac-Toe board"></div>
+
+      <p class="message" id="message" aria-live="polite">
+        Choose a square to play.
+      </p>
+    </section>
+
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div><span>You (X)</span><strong id="score-x">0</strong></div>
+      <div><span id="opponent-label">AI (O)</span><strong id="score-o">0</strong></div>
+      <div><span>Draws</span><strong id="score-draw">0</strong></div>
+    </section>
+
+    <div class="buttons">
+      <button id="restart">Restart round</button>
+      <button id="reset" class="secondary">Reset scores</button>
+    </div>
+
+    <section class="instructions">
+      <h2>How to play</h2>
+      <p>Take turns marking an empty square. Connect three marks in a row—across, down, or diagonally—to win.</p>
+      <p>In hard mode, the AI uses a search strategy and will not lose when it plays perfectly.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

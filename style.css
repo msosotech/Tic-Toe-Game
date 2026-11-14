@@ -1,0 +1,232 @@
+:root {
+  color-scheme: dark;
+  --background: #090d18;
+  --panel: #121a2a;
+  --line: #27334a;
+  --text: #f4f7ff;
+  --muted: #98a5bd;
+  --cyan: #46e6db;
+  --violet: #a18bff;
+  --green: #65edbd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(9, 13, 24, 0.62), rgba(9, 13, 24, 0.74)),
+    radial-gradient(ellipse at 20% 15%, #17244188 0, transparent 42%),
+    radial-gradient(ellipse at 90% 85%, #211b4588 0, transparent 40%),
+    url("babe.jpeg") center 25% / cover no-repeat fixed,
+    var(--background);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.app {
+  width: min(100%, 560px);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: clamp(32px, 8vw, 48px);
+  letter-spacing: -2px;
+}
+
+h1 span {
+  color: var(--cyan);
+}
+
+.subtitle,
+.instructions p {
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.controls label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+select {
+  padding: 8px 10px;
+  color: var(--text);
+  background: #0d1422;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.game,
+.scoreboard,
+.instructions {
+  padding: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+#turn {
+  color: var(--cyan);
+}
+
+#round {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: #151f32;
+  border: 1px solid #30405c;
+  border-radius: 10px;
+  color: var(--cyan);
+  font: 500 clamp(42px, 12vw, 64px) ui-monospace, monospace;
+  cursor: pointer;
+  transition: background 150ms, transform 150ms, box-shadow 150ms;
+}
+
+.cell:hover:enabled {
+  transform: translateY(-2px);
+  background: #1b2a40;
+  box-shadow: 0 0 18px #46e6db22;
+}
+
+.cell.o {
+  color: var(--violet);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.winner {
+  background: #17352f;
+  border-color: var(--green);
+  box-shadow: 0 0 18px #65edbd33;
+}
+
+.message {
+  min-height: 20px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.scoreboard div {
+  display: grid;
+  gap: 6px;
+  padding: 12px 8px;
+  background: #151f32;
+  border-radius: 9px;
+  text-align: center;
+}
+
+.scoreboard span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.scoreboard strong {
+  font: 22px ui-monospace, monospace;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+button {
+  font: inherit;
+}
+
+.buttons button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(100deg, var(--cyan), var(--green));
+  color: #071513;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.buttons .secondary {
+  background: #202a3b;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.instructions {
+  margin-top: 14px;
+}
+
+.instructions h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.instructions p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
